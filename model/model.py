@@ -35,8 +35,8 @@ class Autonoleggio:
             Funzione che legge tutte le automobili nel database
             :return: una lista con tutte le automobili presenti oppure None
         """
-
         # TODO
+
 
     def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
         """
