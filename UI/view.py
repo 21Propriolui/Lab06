@@ -52,9 +52,6 @@ class View:
         # ListView per mostrare la lista di auto aggiornata
         self.lista_auto = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
-        # TextField per ricerca auto per modello
-        self.input_modello_auto = ft.TextField(label="Modello")
-
         # ListView per mostrare il risultato della ricerca auto per modello
         self.lista_auto_ricerca = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
@@ -66,6 +63,8 @@ class View:
         # TODO
         mostra = ft.ElevatedButton('Mostra', on_click=self.controller.mostra_automobili)
         cerca = ft.ElevatedButton('Cerca', on_click=self.controller.cerca_automobili)
+        # TextField per ricerca auto per modello
+        self.input_modello_auto = ft.TextField(label="Modello")
 
         # --- LAYOUT ---
         self.page.add(
@@ -88,6 +87,7 @@ class View:
             ft.Row(spacing=200,
                    controls=[ft.Text('Automobili', size=20), mostra],
                    alignment=ft.MainAxisAlignment.START), # creo riga che contiene il testo 'Automobili' e il pulsante mostra
+            self.lista_auto, # aggiungo la lista da popolare sotto
             ft.Divider(),
 
             # Sezione 4
@@ -96,7 +96,7 @@ class View:
             ft.Row(spacing=200,
                    controls=[self.input_modello_auto, cerca],
                    alignment=ft.MainAxisAlignment.START), # creo riga che contiene il textField 'Cerca Automobile' e il pulsante cerca
-
+            self.lista_auto_ricerca,
         )
 
     def cambia_tema(self, e):
